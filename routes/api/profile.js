@@ -57,10 +57,10 @@ router.get('/all', (req, res) => {
 // @desc    Get profile by handle
 // @access  Public
 
-router.get('/handle/:handle', (req, res) => {
+router.get('/handle/:h', (req, res) => {
   const errors = {};
 
-  Profile.findOne({ handle: req.params.handle })
+  Profile.findOne({ handle: req.params.h })
     .populate('user', ['name', 'avatar'])
     .then(profile => {
       if (!profile) {
